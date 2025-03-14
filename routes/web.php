@@ -40,8 +40,9 @@ Route::controller(NewsController::class)->prefix('/news')->group(function () {
     Route::post('{news}/comment', 'comment')->name('pages.news.commentAdd')->middleware('auth');
 });
 
-Route::controller(UsersController::class)->prefix('/users')->group(function () {
-    Route::get('/', 'index')->name('pages.users.index');
+Route::controller(UsersController::class)->group(function () {
+    Route::get('/users', 'index')->name('pages.users.index');
+    Route::get('/profile/{user}', 'profile')->name('pages.users.profile');
 });
 
 Route::controller(LoginController::class)->middleware('guest')->group(function () {
