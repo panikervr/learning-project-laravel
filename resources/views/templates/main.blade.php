@@ -15,7 +15,7 @@
 </div>
 @if(session('success'))
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast align-items-center text-bg-success border-0" role="alert" data-bs-delay="5000" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
             <div class="toast-body">
                 {{session('success')}}

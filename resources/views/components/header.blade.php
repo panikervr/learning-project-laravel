@@ -6,7 +6,7 @@
                 <li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
                 <li><a href="{{route('pages.news.index')}}" class="nav-link px-2 link-body-emphasis">Новости</a></li>
                 <li><a href="{{route('pages.users.index')}}" class="nav-link px-2 link-body-emphasis">Пользователи</a></li>
-                <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
+                <li><a href="{{route('pages.shop.index')}}" class="nav-link px-2 link-body-emphasis">Магазин</a></li>
             </ul>
             @guest
             <div class="col-md-3 text-end">

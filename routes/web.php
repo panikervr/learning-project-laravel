@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\News\CommentsController;
 use App\Http\Controllers\News\NewsController;
+use App\Http\Controllers\Shop\ShopsController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\User\UsersController;
@@ -37,7 +39,10 @@ Route::controller(NewsController::class)->prefix('/news')->group(function () {
     Route::post('/{news}/update', 'update')->name('pages.news.update')->middleware('auth');
     Route::get('/{news}/edit', 'edit')->name('pages.news.edit')->middleware('auth');
     Route::post('/{news}', 'destroy')->name('pages.news.destroy')->middleware('auth');
-    Route::post('{news}/comment', 'comment')->name('pages.news.commentAdd')->middleware('auth');
+});
+
+Route::controller(CommentsController::class)->group(function () {
+    Route::post('/news/{news}/comment', 'comment')->name('pages.news.commentAdd')->middleware('auth');
 });
 
 Route::controller(UsersController::class)->group(function () {
@@ -56,3 +61,7 @@ Route::controller(RegisterController::class)->middleware('guest')->group(functio
     Route::get('/register', 'register')->name('pages.register');
 });
 
+Route::controller(ShopsController::class)->group(function () {
+    Route::get('/shop', 'index')->name('pages.shop.index');
+    Route::get('/shop/{shop}', 'show')->name('pages.shop.show');
+});

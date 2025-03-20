@@ -37,7 +37,7 @@ class News extends Model
             set: fn (string $value) => (int)$value
         );
     }
-    public function comments(): HasMany
+    public function comments() : HasMany
     {
         return $this->hasMany(Comment::class, 'news_id', 'id');
     }
@@ -49,7 +49,6 @@ class News extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
-
     public function published(): bool
     {
         return $this->published;

@@ -25,17 +25,13 @@
                     </div>
                     @enderror
                 </div>
-                <select name="category" class="form-select form-select-sm mb-3" aria-label=".form-select-sm пример">
+                <select name="category" class="form-select form-select-sm mb-3 @error('category')is-invalid @enderror" aria-label=".form-select-sm пример">
                     <option selected>Выберите категорию</option>
                     @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
-                @error('category')
-                <div id="validationServer03Feedback" class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
+
                 <div class="form-check mb-3">
                     <input class="form-check-input" name="published" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
